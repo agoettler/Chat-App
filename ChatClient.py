@@ -44,7 +44,7 @@ def ClientMain(openPort, host, port):
 		client.shutdown(SHUT_RDWR)
 		client.close
 		print("Connection closed")
-		is isConnected = False
+		isConnected = False
 
 	# If we connected successfully
 	while isConnected
