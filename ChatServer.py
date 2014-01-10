@@ -15,7 +15,9 @@ def main(openPort):
 	handshake.bind((socket.getsockname(),openPort))
 	while True:
 		data, addr = s.recvfrom(1024)
-		print data
+	    # insert fancy logic here
+	    reply = "fancy message"
+	    s.sendto(reply , addr)
 
 ###################################################
 ### Main Entry Point
