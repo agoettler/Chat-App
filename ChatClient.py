@@ -32,30 +32,39 @@ def ClientMain(openPort, host, port):
 	client.bind((socket.getsockname(), openPort))
 
 	# Request a connection from the server
+	isConnected = False
 	client.sendto(signals.ReqConn, host, port)
 
 	# If the server responds to the request, we can proceed
-	receivedData = client.recv(1024)
-	if receivedData == signals.AckConn
+	if client.recv(1024) == signals.AckConn
 		print ("Connected to server at " + host + ":" + port)
-
-		# Probably do some other stuff in here
-
-		# Request to be disconnected from the server
-		client.sendto(signals.ReqDisconn, host, port)
-		if client.recv(1024) == signals.AckDisconn
-			print("Server acknowledged shutdown request.")
-			client.shutdown(SHUT_WR)
-			client.close()
-			print("Connection closed".)
-		else
-			# We requested to be disconnected from the server, but it didn't respond. This may be a problem.
-			print ("We requested to be disconnected from the server, but it didn't respond. This may be a problem.")
+		isConnected = True
 	else
 		print("Server never responded.")
 		client.shutdown(SHUT_RDWR)
 		client.close
 		print("Connection closed")
+		is isConnected = False
+
+	# If we connected successfully
+	while isConnected
+		dataToSend = raw_input(">>")
+
+		if dataToSend == "/exit"
+			# Send request to be disconnected from the server
+			client.sendto(signals.ReqDisconn, host, port)
+
+			# Keep checking the incoming data for acknowledgement
+			while isConnected
+				if client.recv(1024) == signals.AckDisconn
+					print("Server acknowledged shutdown request.")
+					client.shutdown(SHUT_WR)
+					client.close()
+					print("Connection closed".)
+					isConnected = False
+		else
+			client.sendto(dataToSend, host, port)
+
 
 # Main code below
 
