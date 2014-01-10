@@ -9,6 +9,20 @@
 import socket               # Import socket module
 import threading
 from threading import Thread
+from collections import namedtuple
+
+# attempting to use named tuples to simplify management of connection signals
+#
+# Signal Definitions:
+# "ReqConn" - Request Connection - sent to the server by the client to request a "connection"
+# "AckConn" - Acknowledge Connection - sent from the server to the client when the client has been "connected"
+# "ReqDisconn" - Request Disconnection - sent to the server by the client to request disconnection
+# "AckDisconn" - Acknowledge Disconnection - sent from the server to the client when the client has been disconnected
+#
+# Two-letter signal codes may be modified later
+#
+Signals = namedtuple('Signals', ['ReqConn', 'AckConn', 'ReqDisconn', 'AckDisconn'] )
+signals = Signals("CC", "UC", "CE", "UD")
 
 def ClientMain(openPort, targetAddress, targetPort):
 
@@ -16,18 +30,14 @@ def ClientMain(openPort, targetAddress, targetPort):
 	client = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
 	client.bind((socket.getsockname(), openPort))
 
-	dataToSend = "Hi, I'm a client!"
-
-	client.sendto(dataToSend, targetAddress, targetPort)
-
-	receivedData = client.recv(1024)
-
-	print ("Data received:" + receivedData)
-
+	#request a connection from the server
+	
 # Main code below
 
-initOpenPort = 600
-initTargetAddress = 
-initTargetPort = 
+initOpenPort = 0
+initTargetAddress = 0
+initTargetPort = 0
+
+#placeholder values used currently
 
 ClientMain(initOpenPort, initTargetAddress, initTargetPort)
