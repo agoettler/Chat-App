@@ -1,5 +1,11 @@
 #!/usr/bin/python           # This is client.py file
 
+###################################################
+### Author: Nick Wade & Andrew Goettler
+### Purpose: A python chatroom server			 		
+### Please provide credit where appropriate. 	
+###################################################
+
 import socket               # Import socket module
 import threading
 from threading import Thread
