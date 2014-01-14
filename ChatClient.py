@@ -33,8 +33,13 @@ def ClientMain(openPort, host, port):
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 	# If we connected successfully, we can transmit data to the server
 	while isConnected
+=======
+	# If we connected successfully
+	while isConnected:
+>>>>>>> 83e57dea530c3a4abebb166b3f454b14b0276cc0
 =======
 	# If we connected successfully
 	while isConnected:
