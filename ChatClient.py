@@ -9,7 +9,6 @@ from ChatCommon import Signals
 import socket               # Import socket module
 import threading
 from threading import Thread
-from collections import namedtuple
 
 def ClientMain(openPort, host, port):
 	# Create a socket and bind it to a port
@@ -31,23 +30,8 @@ def ClientMain(openPort, host, port):
 		print("Connection closed")
 		isConnected = False
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
 	# If we connected successfully, we can transmit data to the server
 	while isConnected
-=======
-	# If we connected successfully
-	while isConnected:
->>>>>>> 83e57dea530c3a4abebb166b3f454b14b0276cc0
-=======
-	# If we connected successfully
-	while isConnected:
->>>>>>> 83e57dea530c3a4abebb166b3f454b14b0276cc0
-=======
-	# If we connected successfully
-	while isConnected:
->>>>>>> 83e57dea530c3a4abebb166b3f454b14b0276cc0
 		dataToSend = raw_input(">>")
 
 		if dataToSend == "/exit":
