@@ -31,7 +31,7 @@ def ClientMain(openPort, host, port):
 		isConnected = False
 
 	# If we connected successfully, we can transmit data to the server
-	while isConnected
+	while isConnected:
 		dataToSend = raw_input(">>")
 
 		if dataToSend == "/exit":
